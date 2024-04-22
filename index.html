@@ -267,61 +267,8 @@
       });
     </script>
     <!-- Script for div scroll on section  -->
+
     <!-- <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var scrollPage = document.querySelector(".msq-new-uxsense-scroll-page");
-        var pageContainer = document.querySelector(
-          ".msq-new-uxsense-page-container"
-        );
-        var homesection = document.querySelector(
-          ".msq-new-uxsense-homesection"
-        );
-        var scrollsection1 = document.querySelector(
-          ".msq-scroll-section-display1"
-        );
-        var scrollsection2 = document.querySelector(
-          ".msq-scroll-section-display2"
-        );
-
-        var isScrollPageScrolledToBottom = false;
-
-        function updateScrollState() {
-          const tolerance = 2; // Adjust the tolerance level if needed
-
-          const scrollTop = scrollPage.scrollTop;
-          const scrollHeight = scrollPage.scrollHeight;
-          const clientHeight = scrollPage.clientHeight;
-
-          const isNearBottom =
-            scrollHeight - (scrollTop + clientHeight) <= tolerance;
-
-          isScrollPageScrolledToBottom = isNearBottom;
-
-          if (isScrollPageScrolledToBottom) {
-            console.log("Scroll page is scrolled to the bottom");
-            scrollsection1.style.display = "block";
-            scrollsection2.style.display = "block";
-          } else {
-            scrollsection1.style.display = "none";
-            scrollsection2.style.display = "none";
-          }
-        }
-
-        homesection.addEventListener("wheel", function (event) {
-          if (!isScrollPageScrolledToBottom) {
-            event.preventDefault();
-            var currentScrollTop = scrollPage.scrollTop;
-            var increment = event.deltaY * 0.5;
-            var newScrollTop = currentScrollTop + increment;
-            scrollPage.scrollTop = newScrollTop;
-          }
-        });
-
-        scrollPage.addEventListener("scroll", updateScrollState);
-      });
-    </script> -->
-
-    <script>
       document.addEventListener("DOMContentLoaded", function () {
         var scrollPage = document.querySelector(".msq-new-uxsense-scroll-page");
         var pageContainer = document.querySelector(
@@ -409,6 +356,91 @@
         );
 
         // Observe the homeSection
+        observer.observe(homesection);
+      });
+    </script> -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const minWidth = 600;
+        // Check if the viewport width is at least 600px
+        const isMinWidth = window.matchMedia(
+          `(min-width: ${minWidth}px)`
+        ).matches;
+        if (!isMinWidth) {
+          return; // If the condition isn't met, exit early
+        }
+        // Cache all DOM elements in variables
+        const scrollPage = document.querySelector(
+          ".msq-new-uxsense-scroll-page"
+        );
+        const pageContainer = document.querySelector(
+          ".msq-new-uxsense-page-container"
+        );
+        const homesection = document.querySelector(
+          ".msq-new-uxsense-homesection"
+        );
+        const scrollsection1 = document.querySelector(
+          ".msq-scroll-section-display1"
+        );
+        const scrollsection2 = document.querySelector(
+          ".msq-scroll-section-display2"
+        );
+
+        // Initial state flag
+        let isScrollPageScrolledToBottom = false;
+
+        const tolerance = 2; // Tolerance level for detecting bottom of scrollPage
+
+        // Function to update the state based on the scroll position
+        function updateScrollState() {
+          const scrollTop = scrollPage.scrollTop;
+          const scrollHeight = scrollPage.scrollHeight;
+          const clientHeight = scrollPage.clientHeight;
+
+          const isNearBottom =
+            scrollHeight - (scrollTop + clientHeight) <= tolerance;
+
+          if (isNearBottom) {
+            isScrollPageScrolledToBottom = true;
+            scrollsection1.style.display = "block";
+            scrollsection2.style.display = "block";
+          } else {
+            isScrollPageScrolledToBottom = false;
+            scrollsection1.style.display = "none";
+            scrollsection2.style.display = "none";
+          }
+        }
+
+        // Event listener for wheel event on homesection
+        homesection.addEventListener("wheel", function (event) {
+          if (!isScrollPageScrolledToBottom) {
+            event.preventDefault(); // Prevent default wheel behavior
+            scrollPage.scrollTop += event.deltaY * 0.5; // Adjust the scroll increment
+          }
+        });
+
+        // Add scroll event listener to scrollPage
+        scrollPage.addEventListener("scroll", updateScrollState);
+
+        // IntersectionObserver to detect when homesection is 90% visible
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting && entry.intersectionRatio >= 0.9) {
+                isScrollPageScrolledToBottom = false;
+                scrollsection1.style.display = "none";
+                scrollsection2.style.display = "none";
+              }
+            });
+          },
+          {
+            root: null, // Default is the viewport
+            threshold: 0.9, // Trigger when 90% is visible
+          }
+        );
+
+        // Observe the homesection
         observer.observe(homesection);
       });
     </script>

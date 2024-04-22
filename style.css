@@ -1,0 +1,227 @@
+body::-webkit-scrollbar {
+  display: none !important;
+}
+
+.msq-new-uxsense-page-container::-webkit-scrollbar {
+  display: none !important;
+}
+.msq-new-uxsense-page-container {
+  /* height: 100vh; */
+  font-family: "Muli", sans-serif !important;
+}
+.msq-new-uxsense-contact-bg {
+  background-image: url(img/new-ux-sense-contact-us-bg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.msq-new-uxsense-screens-bg {
+  background-image: url(img/new-uxsense-screens-bg.png);
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.msq-w-80 {
+  width: 80%;
+}
+.position-relative-t-100 {
+  position: relative;
+  top: 100px;
+}
+.msq-bg-black {
+  background-color: #000000;
+}
+.msq-text-orange {
+  color: #f79c2e;
+}
+.msq-new-uxsense-homesection {
+  height: 100vh;
+  overflow-y: auto;
+}
+.msq-new-uxsense-desc {
+  font-size: 18px;
+  margin-bottom: 35px;
+}
+.msq-text-white {
+  color: #ffffff;
+}
+.msq-lets-talk-btn {
+  background-color: #f79c2e !important;
+  color: #ffffff !important;
+  padding: 9px 26px !important;
+  font-size: 15px !important;
+}
+.msq-lets-talk-btn:active {
+  border-color: #f79c2e !important;
+}
+.msq-company-logo-img {
+  width: 100px;
+}
+.msq-new-uxsense-scroll-page {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 230px;
+  padding: 10px 0;
+}
+.msq-new-uxsense-scroll-page::-webkit-scrollbar {
+  display: none;
+}
+.msq-new-uxsense-scroll-page-item {
+  text-align: left;
+}
+.msq-mobile-carousel {
+  display: none;
+}
+.msq-screens-laptop {
+  display: flex;
+}
+.msq-new-uxsense-video {
+  width: 70%;
+  height: auto;
+  /* border-radius: 10px; */
+}
+/* Carousel css */
+.msq-new-uxsense-user-interface-wrapper .msq-new-uxsense-carousel .owl-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-right: 10px;
+}
+.msq-new-uxsense-user-interface-wrapper
+  .msq-new-uxsense-carousel
+  .owl-dots
+  .owl-dot
+  span {
+  display: block;
+  width: 10px;
+  height: 3px;
+  background-color: #e2e8f0;
+}
+.msq-new-uxsense-user-interface-wrapper
+  .msq-new-uxsense-carousel
+  .owl-dots
+  .owl-dot.active
+  span {
+  background-color: #f79c2e;
+}
+.msq-new-uxsense-user-interface-wrapper .msq-new-uxsense-carousel .owl-dots {
+  display: flex;
+  position: relative;
+  top: -31px;
+  gap: 8px;
+  align-items: start;
+  justify-content: center;
+}
+.msq-new-uxsense-user-interface-wrapper
+  .msq-new-uxsense-carousel
+  .owl-nav
+  button
+  img {
+  width: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  .msq-bg-black {
+    background-image: url(img/new-uxsense-home-mobile-bg.png);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+  }
+  .msq-new-uxsense-scroll-page {
+    max-height: 290px;
+    margin-bottom: 60px;
+  }
+  /* .msq-mobile-carousel {
+    display: block;
+  }
+  .msq-screens-laptop {
+    display: none;
+  } */
+  .msq-new-uxsense-screens-bg {
+    background-image: url(img/uxsense-screens-bg-mobile.png);
+    background-position: top left;
+  }
+  .msq-company-logo-img {
+    display: none;
+  }
+  .msq-new-uxsense-scroll-page-item {
+    text-align: center;
+  }
+  .msq-flex-column-mobile {
+    flex-direction: column-reverse;
+  }
+  .msq-new-uxsense-home-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .msq-new-uxsense-video {
+    margin-bottom: 35px;
+    width: 100%;
+  }
+
+  /* Carousel css */
+  .msq-new-uxsense-user-interface-wrapper
+    .msq-new-uxsense-carousel
+    .owl-item
+    .item {
+    display: flex;
+    align-items: center;
+    justify-content: start !important;
+    position: relative !important;
+    left: -100px;
+  }
+  .msq-new-uxsense-user-interface-wrapper
+    .msq-new-uxsense-carousel
+    .owl-item.active
+    .item {
+    position: static !important;
+  }
+  .msq-new-uxsense-user-interface-wrapper .msq-new-uxsense-carousel .item img {
+    display: block;
+    width: 70% !important;
+    height: auto;
+  }
+  .msq-new-uxsense-page-container {
+    overflow: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .msq-mobile-carousel {
+    display: block;
+  }
+  .msq-screens-laptop {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 600px) {
+  .msq-new-uxsense-user-interface-wrapper
+    .msq-new-uxsense-carousel
+    .owl-item
+    .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: static;
+    /* left: -100px; */
+  }
+  .msq-new-uxsense-user-interface-wrapper .msq-new-uxsense-carousel .item img {
+    display: block;
+    width: 90% !important;
+    height: auto;
+  }
+  .msq-uxsense-contact-section {
+    /* display: flex; */
+  }
+  .msq-new-uxsense-page-container {
+    /* overflow: hidden; */
+    /* height: 100vh; */
+  }
+  .msq-scroll-section-display1,
+  .msq-scroll-section-display2 {
+    display: none;
+  }
+}
